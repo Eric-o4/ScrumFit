@@ -13,7 +13,7 @@ class ScrumFit extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
+      initialRoute: '/createLift',
       routes: routes,
     );
   }
