@@ -24,54 +24,57 @@ class _CreateLiftScreenState extends State<CreateLiftScreen> {
         appBar: AppBar(
           title: Text("Create Lift"),
         ),
-        body: Form(
-            key: _formKey,
-            child: Column(children: <Widget>[
-              TextFormField(
-                  controller: nameController,
-                  keyboardType: TextInputType.text,
-                  decoration: const InputDecoration(labelText: 'Lift Name'),
-                  validator: (value) {
-                    if (value.isEmpty) return 'Please enter a name';
-                    return null;
-                  }),
-              TextFormField(
-                  controller: setsController,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(labelText: 'Sets'),
-                  validator: (value) {
-                    if (value.isEmpty) return 'Please enter a sets number';
-                    return null;
-                  }),
-              TextFormField(
-                  controller: repsController,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(labelText: 'Reps'),
-                  validator: (value) {
-                    if (value.isEmpty) return 'Please enter a sets number';
-                    return null;
-                  }),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pop(context, null);
-                },
-                child: Text('Save'),
-              ),
-              FlatButton(
-                onPressed: () {
-                  final form = _formKey.currentState;
-                  if (form.validate()) {
-                    Lift retval = new Lift(
-                        nameController.text,
-                        int.parse(repsController.text),
-                        0,
-                        int.parse(setsController.text));
-                    Navigator.pop(context, retval);
-                  }
-                },
-                child: Text('Cancel'),
-              ),
-            ])));
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+              key: _formKey,
+              child: Column(children: <Widget>[
+                TextFormField(
+                    controller: nameController,
+                    keyboardType: TextInputType.text,
+                    decoration: const InputDecoration(labelText: 'Lift Name'),
+                    validator: (value) {
+                      if (value.isEmpty) return 'Please enter a name';
+                      return null;
+                    }),
+                TextFormField(
+                    controller: setsController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(labelText: 'Sets'),
+                    validator: (value) {
+                      if (value.isEmpty) return 'Please enter a sets number';
+                      return null;
+                    }),
+                TextFormField(
+                    controller: repsController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(labelText: 'Reps'),
+                    validator: (value) {
+                      if (value.isEmpty) return 'Please enter a sets number';
+                      return null;
+                    }),
+                RaisedButton(
+                  onPressed: () {
+                    final form = _formKey.currentState;
+                    if (form.validate()) {
+                      Lift retval = new Lift(
+                          nameController.text,
+                          int.parse(repsController.text),
+                          0,
+                          int.parse(setsController.text));
+                      Navigator.pop(context, retval);
+                    }
+                  },
+                  child: Text('Save'),
+                ),
+                FlatButton(
+                  onPressed: () {
+                    Navigator.pop(context, null);
+                  },
+                  child: Text('Cancel'),
+                ),
+              ])),
+        ));
   }
 
   void _goBack(BuildContext context) {

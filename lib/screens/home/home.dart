@@ -10,12 +10,10 @@ class HomeScreen extends StatefulWidget {
 
 class _MyHomePageState extends State<HomeScreen> {
   var lifts = <Lift>[];
-  final Lift example = new Lift("Bench", 5, 0, 5);
   
 
   @override
   Widget build(BuildContext context) {
-    lifts.add(example);
     return Scaffold(
       appBar: AppBar(
         title: Text("ScrumFit"),
@@ -43,7 +41,7 @@ class _MyHomePageState extends State<HomeScreen> {
   }
 
   void _goToCreateLiftScreen(BuildContext context) async {
-    Lift result = await Navigator.of(context).pushNamed('/createLift');
+    dynamic result = await Navigator.of(context).pushNamed('/createLift');
 
     if(result != null)
     {

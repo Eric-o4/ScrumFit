@@ -12,11 +12,12 @@ class ScrumFit extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        cardTheme: CardTheme(
+          elevation: 3.0,
+          color: Colors.white)
       ),
-      initialRoute: '/createLift',
+      initialRoute: '/',
       routes: routes,
     );
   }
 }
-
-
